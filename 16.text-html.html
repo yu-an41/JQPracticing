@@ -13,12 +13,15 @@
 </head>
 <body>
     <h1 id="sample">Hello<span>World</span></h1>
-    <h1 id="result"></h1>
+    <h1 id="result1"></h1>
+    <h1 id="result2"></h1>
+    <h1 id="result3"></h1>
 
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
-        $('#result').text($('#sample').text());
-        $('#result').html($('#sample').html());
+        $('#result1').text($('#sample').text());
+        $('#result2').text($('#sample').html());
+        $('#result3').html($('#sample').html());
         //text只會抓到純文字 html可以抓到標籤
 
     </script>

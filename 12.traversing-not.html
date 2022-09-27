@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>not</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<style>
+    .a3 {
+        width: 100px;height: 100px;
+    }
+</style>
+<body>
+    <div class="a1">A1</div>
+    <div class="a2">A2</div>
+    <div class="a3">A3</div>
+    <div class="a3"></div>
+    <div class="a3">
+        <p class="a2">ppppp</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $('div').not('.a1').css('background', 'skyblue');
+        $('div').empty.css('background', 'lightpink');
+    </script>
+</body>
+
+</html>

@@ -40,6 +40,13 @@
         <div class="box">box11</div>
         <div class="box">box12</div>
     </div>
+    <div class="wrap">
+        <span>span1</span><br>
+        <span>span2</span><br>
+        <span>span3</span><br>
+        <span>span4</span>
+        <div class="box">box only</div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
@@ -50,12 +57,15 @@
         // 注如果把wrap拿掉，父層變成body，last child就不是box12
         // $('.box:last').css('background', 'coral');
 
-        $('.box:nth-child(2n-1)').css('background', 'beige');
-        $('.box:first-child').css('background', 'skyblue');
-        $('.box:last-child').css('background', 'coral');
-        
-        $('.box:first-of-type').css('color', 'brown').css('font-weight', 'bold');
-        $('.box:last-of-type').css('color', 'blue').css('font-weight', 'bold');
+        // $('.box:nth-child(2n-1)').css('background', 'beige');
+
+        // $('.box:first-of-type').css('color', 'brown').css('font-weight', 'bold');
+        // $('.box:last-of-type').css('color', 'blue').css('font-weight', 'bold');
+
+        $('.box:only-child').css('font-size', '30px');
+        $('.box:only-of-type').css('font-weight', 'bold');
+        $('span:nth-of-type(2)').css('background', 'blue');
+
     </script>
 </body>
 

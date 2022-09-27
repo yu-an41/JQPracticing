@@ -48,6 +48,14 @@
         // 注意父層是誰，小孩是誰
         // $('.box:last-child').css('background', 'coral');
         // 注如果把wrap拿掉，父層變成body，last child就不是box12
+        // $('.box:last').css('background', 'coral');
+
+        $('.box:nth-child(2n-1)').css('background', 'beige');
+        $('.box:first-child').css('background', 'skyblue');
+        $('.box:last-child').css('background', 'coral');
+        
+        $('.box:first-of-type').css('color', 'brown').css('font-weight', 'bold');
+        $('.box:last-of-type').css('color', 'blue').css('font-weight', 'bold');
     </script>
 </body>
 

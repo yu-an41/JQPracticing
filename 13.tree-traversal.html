@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tree traversal</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
+
 <body>
     <div class="container">
         <div class="row">
@@ -22,7 +25,7 @@
                                 <li class="item-003">item-003</li>
                             </ul>
                         </li>
-                        
+
                         <li class="item-03">item-03</li>
                     </ul>
                 </li>
@@ -31,7 +34,8 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
         // $('ul').children().css('border', '2px solid purple');
         // $('.level-2').children('.item-02').css('border', '2px solid pink');
@@ -40,6 +44,20 @@
         // $('.item-001').parent().parent().parent().parents().css('outline', '2px solid brown');
         // $('.item-001').parentsUntil('.level-1').css('outline', '2px solid brown');
         // $('.item-001').parentsUntil('.level-1').css('outline', '2px solid brown');
+
+        const LI = document.querySelectorAll('li');
+
+        LI.forEach(function (element) {
+            element.addEventListener('click', function (e) {
+                e.stopPropagation();
+                console.log('li', e.currentTarget.innerText);
+            })
+        })
+        $('li').click(function (e) {
+            e.stopPropagation();
+            console.log('li', $(e.currentTarget).text());
+        })
     </script>
 </body>
+
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute</title>
+</head>
+<body>
+    <img src="./images/4.png">
+    <img id="img2" src="./images/1.png">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        // console.log($('img').attr('hidden'));
+        // 找得到就會印出屬性名稱，找不到就是undefined
+
+        $('img').attr('src', $('#img2').attr('src'));
+        console.log($('img').attr('src'));
+
+        // 將js物件轉為jq物件
+        const IMG = document.querySelector('#img2');
+        $('IMG').attr('src', './images/2.png');
+
+        //jq物件透過陣列取值使用JS方法
+        $('img')[0].style.width = "500px";
+    </script>
+</body>
+</html>

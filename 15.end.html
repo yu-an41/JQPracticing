@@ -27,13 +27,20 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
-        $('.first')
-        .find('.a1')
-        .siblings()
-        .css('outline', '1px solid purple')
-        .end().css('outline', '1px solid salmon')
-        .end().css('outline', '1px solid green')
-        .end().parent().css('outline', '1px solid blue');
+        // $('.first')
+        // .find('.a1')
+        // .siblings()
+        // .css('outline', '1px solid purple')
+        // .end().css('outline', '1px solid salmon')
+        // .end().css('outline', '1px solid green')
+        // .end().parent().css('outline', '1px solid blue');
+
+        $('li').each((index, item) => {
+            console.log('index num: ', index);
+            console.log('item name: ', item);
+        })
+        // for each in jQuery => tbc
+
     </script>
 </body>
 

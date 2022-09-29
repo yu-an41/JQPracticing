@@ -14,13 +14,19 @@
                 <li>item 2</li>
             </ul>
         </div>
+        <button class="btn">add item</button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
         $('ul').append('<li>item 3</li>');
-        $('ul').append('<li>item 4</li>');
         $('ul').prepend('<li>item -1</li>');
+
+        let x = 4;
+        $('.btn').click(function(){
+            $('ul').append('<li>item ' + x + '</li>');
+            x ++;
+        })
     </script>
 </body>
 </html>

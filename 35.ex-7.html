@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select</title>
+</head>
+
+<body>
+    <form action="">
+        <select name="city" id="city">
+            <!-- <option value="0">基隆</option>
+            <option value="1">台北</option>
+            <option value="2">新北</option> -->
+        </select>
+        <select name="district" id="district">
+            <!-- <option value="0">七堵</option>
+            <option value="1">中正</option>
+            <option value="2">暖暖</option> -->
+        </select>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        let cityArray = ['基隆', '台北', '新北'];
+        let districtArray = [
+            ['七堵', '中正', '暖暖'],
+            ['中正', '大安', '信義'],
+            ['蘆洲', '三重', '新店'],
+        ];
+        for(let i = 0; i < cityArray.length; i++) {
+            $('#city').append(`<option value="${i}">${cityArray[i]}</option>`);
+        }
+        $('#city').change(function(){
+            const theCity = $(this).val();
+            const theDist = districtArray[theCity];
+
+            // $('#district').children('option').remove();
+            $('#district').empty();
+            for(let i =0 ; i < theDist.length; i++){
+                $('#district').append(`<option value="${i}">${theDist[i]}區</option>`);
+            }
+            // $('arrDist').each(function(index, item){
+            //     $('#district').append(`<option>${arrDist[item]}</option>`);
+            // })
+            // $('#district').append(`<option></option>`);
+        })
+    </script>
+</body>
+
+</html>

@@ -21,12 +21,18 @@
     <script>
         $('ul').append('<li>item 3</li>');
         $('ul').prepend('<li>item -1</li>');
+        $('ul').prepend('<li>item -1</li>');
 
         let x = 4;
         $('.btn').click(function(){
             $('ul').append('<li>item ' + x + '</li>');
             x ++;
         })
+
+        function append(){
+            let i = 4;
+
+        }
     </script>
 </body>
 </html>

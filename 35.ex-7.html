@@ -24,6 +24,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="./data/address.js"></script>
     <script>
         let cityArray = ['基隆', '台北', '新北'];
         let districtArray = [
@@ -31,16 +32,16 @@
             ['中正', '大安', '信義'],
             ['蘆洲', '三重', '新店'],
         ];
-        for(let i = 0; i < cityArray.length; i++) {
+        for (let i = 0; i < cityArray.length; i++) {
             $('#city').append(`<option value="${i}">${cityArray[i]}</option>`);
         }
-        $('#city').change(function(){
+        $('#city').change(function () {
             const theCity = $(this).val();
             const theDist = districtArray[theCity];
 
             // $('#district').children('option').remove();
             $('#district').empty();
-            for(let i =0 ; i < theDist.length; i++){
+            for (let i = 0; i < theDist.length; i++) {
                 $('#district').append(`<option value="${i}">${theDist[i]}區</option>`);
             }
             // $('arrDist').each(function(index, item){

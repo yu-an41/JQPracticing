@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll</title>
+    <style>
+        .autobg {
+            width: 800wh;
+            height: 1200vh;
+            font-size: 10rem;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="autobg">1</section>
+    <section class="autobg">2</section>
+    <section class="autobg">3</section>
+    <section class="autobg">4</section>
+    <section class="autobg">5</section>
+    <section class="autobg">6</section>
+    <section class="autobg">7</section>
+    <section class="autobg">8</section>
+    <section class="autobg">9</section>
+    <section class="autobg">10</section>
+    <section class="autobg">11</section>
+    <section class="autobg">12</section>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+
+        function getRBGA() {
+            return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+        }
+
+        const elements = document.querySelectorAll('.autobg');
+
+        Array.from(elements).forEach((element, index) => {
+            element.style.backgroundImage = getRBGA();
+        });
+
+    // $('.autobg').each(function (index, currentElement) {
+    //     currentElement.style.backgroundImage = getRBGA();
+    // });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $(window).scroll(function(){
+            console.log('window scrollTop', $(this).scrollTop);
+            console.log('window scrollLeft', $(this).scrollLeft);
+        })
+    </script>
+</body>
+
+</html>

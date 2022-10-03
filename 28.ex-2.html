@@ -1,12 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ex2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .box {
+            height: 100px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-3 box box1 autobg">box1</div>
+            <div class="col-lg-12 col-md-3 box box2 autobg">box2</div>
+            <div class="col-lg-12 col-md-3 box box3 autobg">box3</div>
+            <div class="col-lg-12 col-md-3 box box4 autobg">box4</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-3 box box5 autobg">box5</div>
+            <div class="col-lg-12 col-md-3 box box6 autobg">box6</div>
+            <div class="col-lg-12 col-md-3 box box7 autobg">box7</div>
+            <div class="col-lg-12 col-md-3 box box8 autobg">box8</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-3 box box9 autobg">box9</div>
+            <div class="col-lg-12 col-md-3 box box10 autobg">box10</div>
+            <div class="col-lg-12 col-md-3 box box11 autobg">box11</div>
+            <div class="col-lg-12 col-md-3 box box12 autobg">box12</div>
+        </div>
+    </div>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+
+        function getRBGA() {
+            return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+        }
+
+        const elements = document.querySelectorAll('.autobg');
+
+        Array.from(elements).forEach((element, index) => {
+            element.style.backgroundImage = getRBGA();
+        });
+
+    // $('.autobg').each(function (index, currentElement) {
+    //     currentElement.style.backgroundImage = getRBGA();
+    // });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        // $('.box').click(function () {
+        //     $(this).css('background', 'skyblue').nextAll().css('background', 'skyblue');
+        // })
+
+        $('.box').click(function(){
+            // console.log('this:', $(this).text().replace('box', ''));
+            // const index = $(this).text().replace('box', '') -2;
+
+            // $(`.box:gt(${index})`).css('background', 'skyblue');
+            $('.box').css('background', 'transparent');
+            $(this).css('background', 'skyblue').nextAll().css('background', 'skyblue').parent().nextAll().children().css('background', 'skyblue');
+        })
+    </script>
 </body>
+
 </html>

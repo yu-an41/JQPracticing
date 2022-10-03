@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 10</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<style>
+    p {
+        font-size: 2rem;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+    p.small {
+        font-size: 1rem;
+    }
+    p.large {
+        font-size: 3rem;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="row my-3">
+            <button id="btnS" class="btn btn-info">S</button>
+            <button id="btnM" class="btn btn-info">M</button>
+            <button id="btnL" class="btn btn-info">L</button>
+        </div>
+        <div class="row">
+            <h1>jQuery</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum iste, maxime quibusdam rerum quia enim officiis atque aut nobis sapiente adipisci fuga exercitationem, culpa iusto et minus doloremque dicta natus.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum iste, maxime quibusdam rerum quia enim officiis atque aut nobis sapiente adipisci fuga exercitationem, culpa iusto et minus doloremque dicta natus.</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $('#btnS').click(function(){
+            // console.log('small clicked');
+            $('p').addClass('small');
+        })
+        $('#btnM').click(function(){
+            $('p').removeClass('medium').removeClass('large');
+        })
+        $('#btnL').click(function(){
+            $('p').addClass('large');
+        })
+    </script>
+</body>
+
+</html>

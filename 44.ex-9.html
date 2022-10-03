@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ex 9</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .wrap {
-            width: 600px;
+            width: 800px;
             height: 400px;
             /* background-color: #ccc; */
             background: url('./images/mario_images.png') center center/ cover no-repeat;
@@ -17,16 +21,19 @@
         }
 
         .box {
-            width: 50px;
-            height: 50px;
+            width: 100px;
+            height: 100px;
+            background: url('./images/MARIO.png') center center/ cover no-repeat;
             /* background-color: #aaf; */
-            background-color: salmon;
+            /* background-color: salmon; */
             position: absolute;
             top: 0;
             left: 0;
+            transition: .2s;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="row mb-3">
@@ -56,33 +63,84 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
-        function moveRight(){
+        let boxLeft = parseInt($('.box').css('left'));
+        let boxTop = parseInt($('.box').css('top'));
+        let myInterval = null;
+
+        function startInterval() {
             const maxLeft = $('.wrap').width() - $('.box').width();
-
-            if(parseInt($('.box').css('left')) < maxLeft){
-                $('.box').css('left', '+=50');
-            }
-        }
-
-        function moveLeft(){
-            if(parseInt($('.box').css('left')) > 0) {
-                $('.box').css('left', '-=50');
-            }
-        }
-
-        function moveDown(){
             const maxDown = $('.wrap').height() - $('.box').height();
 
-            if(parseInt($('.box').css('top')) < maxDown) {
-                $('.box').css('top', '+=50');
+            myInterval = setInterval(() => {
+                let direction ='';
+                if ($(this).attr('id') === 'btnRight') {
+                    boxLeft += 10;
+                    direction = 'right';
+                    move(direction);
+                }
+                else if ($(this).attr('id') === 'btnLeft') {
+                    boxLeft -= 10;
+                    moveLeft(boxLeft);
+                }
+                // else if ($(this).attr('id') === 'btnDown') {
+                //     boxTop += 10;
+                //     moveDown(boxTop);
+                // }
+                // else if ($(this).attr('id') === 'btnUp') {
+                //     boxTop += 10;
+                //     moveUp(boxTop);
+                // }
+            }, 80);
+        }
+        // console.log('myInterval', myInterval);
+
+        function stopInterval() {
+            clearInterval(myInterval);
+        }
+
+        $('#btnRight').mousedown(startInterval);
+        $('#btnLeft').mousedown(startInterval);
+        $('#btnRight').mouseup(stopInterval);
+        $('#btnLeft').mouseup(stopInterval);
+
+        function move(direction) {
+            if (direction === 'right') {
+                console.log('right');
+            }
+
+            else if (direction === 'left') {
+
+            }
+        }
+        function moveRight(boxLeft) {
+            const maxLeft = $('.wrap').width() - $('.box').width();
+
+            if (boxLeft <= maxLeft) {
+                $('.box').css('left', boxLeft);
             }
         }
 
-        function moveUp(){
-            if(parseInt($('.box').css('top')) > 0) {
-                $('.box').css('top', '-=50');
+        function moveLeft(boxLeft) {
+            if (boxLeft >= 0) {
+                $('.box').css('left', boxLeft);
+                // console.log(boxLeft);
+            }
+        }
+
+        function moveDown(boxTop) {
+            const maxDown = $('.wrap').height() - $('.box').height();
+
+            if (boxTop < maxDown) {
+                $('.box').css('top', boxTop);
+            }
+        }
+
+        function moveUp(boxTop) {
+            if (parseInt($('.box').css('top')) > 0) {
+                $('.box').css('top', boxTop);
             }
         }
 
@@ -92,22 +150,23 @@
         $('#btnDown').click(moveDown);
         $('#btnUp').click(moveUp);
 
-        $(document).on('keydown', function(e){
+        $(document).on('keydown', function (e) {
             console.log(e.keyCode);
-            if(e.keyCode === 39) {
+            if (e.keyCode === 39) {
                 moveRight();
             }
-            else if(e.keyCode ===37) {
+            else if (e.keyCode === 37) {
                 moveLeft();
             }
-            else if(e.keyCode ===40) {
+            else if (e.keyCode === 40) {
                 moveDown();
             }
-            else if(e.keyCode ===38) {
+            else if (e.keyCode === 38) {
                 moveUp();
             }
 
         })
     </script>
 </body>
+
 </html>

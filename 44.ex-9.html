@@ -70,29 +70,29 @@
         let boxTop = parseInt($('.box').css('top'));
         let myInterval = null;
 
-        function startInterval() {
-            const maxLeft = $('.wrap').width() - $('.box').width();
-            const maxDown = $('.wrap').height() - $('.box').height();
-
+        function startInterval(cssname, direction) {
             myInterval = setInterval(() => {
-                let direction ='';
-                if ($(this).attr('id') === 'btnRight') {
-                    boxLeft += 10;
-                    direction = 'right';
-                    move(direction);
-                }
-                else if ($(this).attr('id') === 'btnLeft') {
-                    boxLeft -= 10;
-                    moveLeft(boxLeft);
-                }
-                // else if ($(this).attr('id') === 'btnDown') {
-                //     boxTop += 10;
-                //     moveDown(boxTop);
+                // const maxLeft = $('.wrap').width() - $('.box').width();
+                // const maxDown = $('.wrap').height() - $('.box').height();
+                const speed = 10;
+
+                $('.box').css(cssname, direction + speed);
+                // let direction = '';
+                // if ($(this).attr('id') === 'btnRight') {
+                //     boxLeft += 10;
+                //     if (boxLeft <= maxLeft) {
+                //         direction = 'right';
+                //         move(direction);
+                //     }
                 // }
-                // else if ($(this).attr('id') === 'btnUp') {
-                //     boxTop += 10;
-                //     moveUp(boxTop);
+                // else if ($(this).attr('id') === 'btnLeft') {
+                //     boxLeft -= 10;
+                //     if (boxLeft >= 0) {
+                //         direction = 'left';
+                //         move(direction);
+                //     }
                 // }
+
             }, 80);
         }
         // console.log('myInterval', myInterval);
@@ -101,34 +101,43 @@
             clearInterval(myInterval);
         }
 
-        $('#btnRight').mousedown(startInterval);
-        $('#btnLeft').mousedown(startInterval);
+        $('#btnRight').mousedown(() => startInterval('left', '+='));
         $('#btnRight').mouseup(stopInterval);
+
+        $('#btnLeft').mousedown(() => startInterval('left', '-='));
         $('#btnLeft').mouseup(stopInterval);
 
-        function move(direction) {
-            if (direction === 'right') {
-                console.log('right');
-            }
+        $('#btnDown').mousedown(() => startInterval('top', '+='));
+        $('#btnDown').mouseup(stopInterval);
 
-            else if (direction === 'left') {
+        $('#btnUp').mousedown(() => startInterval('top', '-='));
+        $('#btnUp').mouseup(stopInterval);
 
-            }
-        }
-        function moveRight(boxLeft) {
-            const maxLeft = $('.wrap').width() - $('.box').width();
 
-            if (boxLeft <= maxLeft) {
-                $('.box').css('left', boxLeft);
-            }
-        }
+        // function move(direction) {
+        //     if (direction === 'right') {
+        //         // console.log('right');
+        //         $('.box').css('left', boxLeft);
+        //     }
+        //     else if (direction === 'left') {
+        //         $('.box').css('left', boxLeft);
+        //     }
+        // }
+        
+        // function moveRight(boxLeft) {
+        //     const maxLeft = $('.wrap').width() - $('.box').width();
 
-        function moveLeft(boxLeft) {
-            if (boxLeft >= 0) {
-                $('.box').css('left', boxLeft);
-                // console.log(boxLeft);
-            }
-        }
+        //     if (boxLeft <= maxLeft) {
+        //         $('.box').css('left', boxLeft);
+        //     }
+        // }
+
+        // function moveLeft(boxLeft) {
+        //     if (boxLeft >= 0) {
+        //         $('.box').css('left', boxLeft);
+        //         // console.log(boxLeft);
+        //     }
+        // }
 
         function moveDown(boxTop) {
             const maxDown = $('.wrap').height() - $('.box').height();
@@ -144,28 +153,28 @@
             }
         }
 
-        $('#btnRight').click(moveRight);
-        $('#btnLeft').click(moveLeft);
+        // $('#btnRight').click(moveRight);
+        // $('#btnLeft').click(moveLeft);
 
-        $('#btnDown').click(moveDown);
-        $('#btnUp').click(moveUp);
+        // $('#btnDown').click(moveDown);
+        // $('#btnUp').click(moveUp);
 
-        $(document).on('keydown', function (e) {
-            console.log(e.keyCode);
-            if (e.keyCode === 39) {
-                moveRight();
-            }
-            else if (e.keyCode === 37) {
-                moveLeft();
-            }
-            else if (e.keyCode === 40) {
-                moveDown();
-            }
-            else if (e.keyCode === 38) {
-                moveUp();
-            }
+        // $(document).on('keydown', function (e) {
+        //     console.log(e.keyCode);
+        //     if (e.keyCode === 39) {
+        //         moveRight();
+        //     }
+        //     else if (e.keyCode === 37) {
+        //         moveLeft();
+        //     }
+        //     else if (e.keyCode === 40) {
+        //         moveDown();
+        //     }
+        //     else if (e.keyCode === 38) {
+        //         moveUp();
+        //     }
 
-        })
+        // })
     </script>
 </body>
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add class</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, lightpink, skyblue);
+        }
+
+        .box.active {
+            background: linear-gradient(135deg, lightgreen, khaki);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row my-3">
+            <button class="btn btn-light" id="btnAdd">ADD</button>
+            <button class="btn btn-light" id="btnRemove">REMOVE</button>
+            <button class="btn btn-light" id="btnToggle">TOGGLE</button>
+            <button class="btn btn-light" id="btnHas">HAS</button>
+        </div>
+        <div class="row">
+            <div class="box"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $('#btnAdd').click(function () {
+            $('.box').addClass('active');
+        })
+        $('#btnRemove').click(function () {
+            $('.box').removeClass('active');
+        })
+        $('#btnToggle').click(function () {
+            $('.box').toggleClass('active');
+        })
+        $('#btnHas').click(function () {
+            console.log($('.box').hasClass('active'));
+        })
+    </script>
+</body>
+
+</html>

@@ -6,10 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ex4</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .img-wrap {
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid transparent;
+        }
+
+        .img-wrap img {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
-
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="img-wrap"><img src="./images/person1.jpg" alt=""></div>
+            </div>
+            <div class="col">
+                <div class="img-wrap"><img src="./images/person2.jpg" alt=""></div>
+            </div>
+            <div class="col">
+                <div class="img-wrap"><img src="./images/person3.jpg" alt=""></div>
+            </div>
+            <div class="col">
+                <div class="img-wrap"><img src="./images/person4.jpg" alt=""></div>
+            </div>
+            <div class="col">
+                <div class="img-wrap"><img src="./images/person5.jpg" alt=""></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $('.img-wrap').click(function(){
+            $(this).css('border', '3px solid salmon').parent().siblings().find('.img-wrap').css('border', '3px solid transparent');
+        })
+    </script>
 </body>
 
 </html>

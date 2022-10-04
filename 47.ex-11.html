@@ -1,12 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ex 11</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .color-demo-area,
+        .color-select-area {
+            /* height: 480px; */
+            aspect-ratio: 1/1;
+            background-color: #cce;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .color-selector {
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            background-color: pink;
+        }
+
+        .color-rgba {
+            font-size: 14px;
+            line-height: 1.2;
+            color: transparent;
+        }
+        .color-rgba:hover {
+            color: #666;
+            font-weight: 400;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 10px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="color-demo-area d-flex flex-row justify-content-center align-items-center">
+                    <div class="color-rgba"></div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="color-select-area d-flex flex-wrap"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        for(let i = 0; i<9; i++) {
+            $('.color-select-area').append('<div class="col-6 col-md-4 col-lg-3"><div class="color-selector autobg"></div></div>');
+        }
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+
+        function getRBGA() {
+            return `rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5)`
+        }
+
+        const elements = document.querySelectorAll('.autobg');
+
+        Array.from(elements).forEach((element, index) => {
+            element.style.background = getRBGA();
+        });
+
+        $('.color-select-area .color-selector').on('click', function(){
+            // console.log($(this).css('background'));
+            const bgc = $(this).css('background');
+            $('.color-demo-area').css('background', $(this).css('background'));
+            $('.color-rgba').html(`<p>${bgc}</p>`);
+        })
+    </script>
 </body>
+
 </html>

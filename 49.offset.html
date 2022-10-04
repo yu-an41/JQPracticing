@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offset</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            height: 100vh;
+            font-size: 10rem;
+        }
+        .wrap {
+            display: flex;
+            transform: translateX(100%);
+            transition: .5s;
+        }
+        .wrap.show {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="section1 autobg">section1</section>
+    <section class="section2 autobg">
+        <div class="wrap">
+            <div class="img-wrap"><img src="./images/1.png" alt=""></div>
+            <div class="img-wrap"><img src="./images/2.png" alt=""></div>
+            <div class="img-wrap"><img src="./images/3.png" alt=""></div>
+        </div>
+    </section>
+    <section class="section3 autobg">section3</section>
+    <section class="section4 autobg">section4</section>
+    <section class="section5 autobg">section5</section>
+    <section class="section6 autobg">section6</section>
+    <section class="section7 autobg">section7</section>
+    <section class="section8 autobg">section8</section>
+    <section class="section9 autobg">section9</section>
+    <section class="section10 autobg">section10</section>
+    <section class="section11 autobg">section11</section>
+    <section class="section12 autobg">section12</section>
+
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+
+        function getRBGA() {
+            return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+        }
+
+        const elements = document.querySelectorAll('.autobg');
+
+        Array.from(elements).forEach((element, index) => {
+            element.style.backgroundImage = getRBGA();
+        });
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $(window).scroll(function () {
+            const nowScroll = $(window).scrollTop();
+            console.log('nowScroll', nowScroll);
+
+            if (nowScroll >= $('.section2').offset().top - $(window).height() / 2) {
+                $('.section2').css('background', 'salmon');
+                $('.wrap').addClass('show');
+            }
+            else {
+                $('.section2').css('background', 'orange');
+                $('.wrap').removeClass('show');
+            }
+        })
+
+    </script>
+</body>
+
+</html>

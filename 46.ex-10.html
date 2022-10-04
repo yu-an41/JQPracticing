@@ -46,20 +46,38 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
-        $('#btnS').click(function () {
-            // console.log('small clicked');
-            $('p').removeClass('medium large').addClass('small');
-            $('#btnS').addClass('active');
-        })
-        $('#btnM').click(function () {
-            $('p').removeClass('small large').addClass('medium');
-            $('#btnS, #btnL').removeClass('active');
-            $('#btnM').addClass('active');
-        })
-        $('#btnL').click(function () {
-            $('p').removeClass('small medium').addClass('large');
-            $('#btnS, #btnM').removeClass('active');
-            $('#btnL').addClass('active');
+        // $('#btnS').click(function () {
+        //     // console.log('small clicked');
+        //     $('p').removeClass('medium large').addClass('small');
+        //     $('#btnS').addClass('active');
+        // })
+        // $('#btnM').click(function () {
+        //     $('p').removeClass('small large').addClass('medium');
+        //     $('#btnS, #btnL').removeClass('active');
+        //     $('#btnM').addClass('active');
+        // })
+        // $('#btnL').click(function () {
+        //     $('p').removeClass('small medium').addClass('large');
+        //     $('#btnS, #btnM').removeClass('active');
+        //     $('#btnL').addClass('active');
+        // })
+
+        $('.btn-group button').click(function () {
+            // console.log($(this));
+            if ($(this).attr('id') === 'btnS') {
+                $('p').removeClass('medium large').addClass('small');
+                $('#btnS').addClass('active');
+            }
+            else if ($(this).attr('id') === 'btnM') {
+                $('p').removeClass('small large').addClass('medium');
+                $('#btnS, #btnL').removeClass('active');
+                $('#btnM').addClass('active');
+            }
+            else {
+                $('p').removeClass('small medium').addClass('large');
+                $('#btnS, #btnM').removeClass('active');
+                $('#btnL').addClass('active');
+            }
         })
     </script>
 </body>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>width & height</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            border: 5px solid rgba(221, 221, 221, 0.63);
+            border-radius: 20px;
+            margin: 40px;
+            background: linear-gradient(45deg, lightpink, #aad);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        console.log(`box width: `, $('.box').width());
+        console.log(`box height: `, $('.box').height());
+        console.log(`box width with padding: `, $('.box').innerWidth());
+        console.log(`box height with padding: `, $('.box').innerHeight());
+        console.log(`box width with border: `, $('.box').outerWidth());
+        console.log(`box height with border: `, $('.box').outerHeight());
+        console.log(`box width with margin: `, $('.box').outerWidth(true));
+        console.log(`box height with margin: `, $('.box').outerHeight(true));
+    </script>
+</body>
+</html>

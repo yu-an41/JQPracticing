@@ -27,9 +27,9 @@
     <div class="container">
         <div class="row justify-content-end my-3">
             <div class="btn-group" role="group">
-                <button id="btnS" class="btn btn-info">S</button>
-                <button id="btnM" class="btn btn-info active">M</button>
-                <button id="btnL" class="btn btn-info">L</button>
+                <button id="btnS" class="btn btn-success">S</button>
+                <button id="btnM" class="btn btn-success active">M</button>
+                <button id="btnL" class="btn btn-success">L</button>
             </div>
         </div>
         <div class="row">
@@ -46,39 +46,34 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
-        // $('#btnS').click(function () {
-        //     // console.log('small clicked');
-        //     $('p').removeClass('medium large').addClass('small');
-        //     $('#btnS').addClass('active');
-        // })
-        // $('#btnM').click(function () {
-        //     $('p').removeClass('small large').addClass('medium');
-        //     $('#btnS, #btnL').removeClass('active');
-        //     $('#btnM').addClass('active');
-        // })
-        // $('#btnL').click(function () {
-        //     $('p').removeClass('small medium').addClass('large');
-        //     $('#btnS, #btnM').removeClass('active');
-        //     $('#btnL').addClass('active');
-        // })
 
         $('.btn-group button').click(function () {
-            // console.log($(this));
-            if ($(this).attr('id') === 'btnS') {
-                $('p').removeClass('medium large').addClass('small');
-                $('#btnS').addClass('active');
+            // console.log($(this).eq());
+            let rmClassStr = '';
+            let addClassStr = '';
+
+            if ($(this).is(':contains(S)')) {
+                rmClassStr = 'medium large';
+                addClassStr = 'small';
             }
-            else if ($(this).attr('id') === 'btnM') {
-                $('p').removeClass('small large').addClass('medium');
-                $('#btnS, #btnL').removeClass('active');
-                $('#btnM').addClass('active');
+            if ($(this).is(':contains(M)')) {
+                rmClassStr = 'small large';
+                addClassStr = 'medium';
             }
-            else {
-                $('p').removeClass('small medium').addClass('large');
-                $('#btnS, #btnM').removeClass('active');
-                $('#btnL').addClass('active');
+            if ($(this).is(':contains(L)')) {
+                rmClassStr = 'small medium';
+                addClassStr = 'large';
             }
+
+            reRender($(this),rmClassStr, addClassStr );
+
         })
+
+        function reRender(btn, rmClassStr, addClassStr) {
+            $('p').removeClass(rmClassStr).addClass(addClassStr);
+            $(btn).addClass('active').siblings().removeClass('active');
+
+        }
     </script>
 </body>
 

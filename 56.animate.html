@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate.css</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row my-3">
+            <button class="btn btn-light" data-ani-str="bounce">ani1</button>
+            <button class="btn btn-light" data-ani-str="flash">ani2</button>
+            <button class="btn btn-light" data-ani-str="wobble">ani3</button>
+        </div>
+        <h1 class="animate__animated">Time to go home!</h1>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+<script>
+    $('button').click(function () {
+        const animation = `${$(this).data('ani-str')}`;
+
+        $('h1').addClass(`animate__${animation}`).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+            $('h1').removeClass(`animate__${animation}`);
+        })
+    })
+
+
+</script>
+
+</html>

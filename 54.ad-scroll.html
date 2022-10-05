@@ -10,6 +10,7 @@
         body {
             margin: 0;
         }
+
         section {
             height: 100vh;
         }
@@ -30,8 +31,15 @@
         }
 
         .ad-imgs-wrap img {
+            width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .ad2,
+        .ad3 {
+            transform-origin: 0 0;
+            /* animation: tear-off 3s infinite; */
         }
     </style>
 </head>
@@ -41,13 +49,13 @@
     <section class="section2 autobg">section2</section>
     <section class="section3 autobg">
         <div class="ad-row">
-            <div class="ad-imgs-wrap">
+            <div class="ad-imgs-wrap ad1">
                 <img src="./images/slide1.jpg" alt="">
             </div>
-            <div class="ad-imgs-wrap">
+            <div class="ad-imgs-wrap ad2">
                 <img src="./images/slide2.jpg" alt="">
             </div>
-            <div class="ad-imgs-wrap">
+            <div class="ad-imgs-wrap ad3">
                 <img src="./images/slide3.jpg" alt="">
             </div>
         </div>
@@ -75,7 +83,29 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
+        $(window).scroll(function () {
+            const originAdImgTop = $('.section3').offset().top;
+            const nowScroll = $(window).scrollTop();
+            const windowHeight = $(window).height();
 
+            if (nowScroll <= originAdImgTop) {
+                const percentage = 0;
+                const transX = -120 * percentage;
+                const transY = -20 * percentage;
+                const rotateDeg = 20 * percentage;
+
+                $('.ad3').css('transform', `translate(${transX}%, ${transY}%) rotate(${rotateDeg}deg)`)
+            }
+
+            if (nowScroll > originAdImgTop) {
+                const percentage = (nowScroll - originAdImgTop) / windowHeight;
+                const transX = -120 * percentage;
+                const transY = -20 * percentage;
+                const rotateDeg = 20 * percentage;
+
+                $('.ad3').css('transform', `translate(${transX}%, ${transY}%) rotate(${rotateDeg}deg)`)
+            }
+        })
     </script>
 </body>
 

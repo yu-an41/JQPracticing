@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sticky</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        section:not(.section3) {
+            height: 100vh;
+            font-size: 10rem;
+        }
+
+        .d-flex {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .left {
+            flex-grow: 1;
+        }
+        .box {
+            height: 300px;
+        }
+
+        .right {
+            position: sticky;
+            top: 0;
+        }
+
+        .right p {
+            border: 1px solid salmon;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="section1 autobg">section1</section>
+    <section class="section2 autobg">section2</section>
+    <section class="section3 autobg">
+        <div class="d-flex">
+            <div class="left">
+                <div class="box box1">box1</div>
+                <div class="box box2">box2</div>
+                <div class="box box3">box3</div>
+                <div class="box box4">box4</div>
+                <div class="box box5">box5</div>
+                <div class="box box6">box6</div>
+                <div class="box box1">box1</div>
+                <div class="box box2">box2</div>
+                <div class="box box3">box3</div>
+                <div class="box box4">box4</div>
+                <div class="box box5">box5</div>
+                <div class="box box6">box6</div>
+            </div>
+            <div class="right">
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+    </section>
+    <section class="section4 autobg">section4</section>
+    <section class="section5 autobg">section5</section>
+    <section class="section6 autobg">section6</section>
+
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+
+        function getRBGA() {
+            return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+        }
+
+        const elements = document.querySelectorAll('.autobg');
+
+        Array.from(elements).forEach((element, index) => {
+            element.style.backgroundImage = getRBGA();
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        
+    </script>
+</body>
+
+</html>

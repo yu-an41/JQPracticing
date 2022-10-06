@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toggle & fade</title>
+</head>
+<body>
+    <button>click</button>
+    <h1>Hi h1</h1>
+    <h2>Hi h2</h2>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $('button').click(function() {
+            $('h1').toggle(200, function(){
+                console.log('toggle done');
+            })
+            $('h2').fadeTo(200, 0.2);
+            console.log();
+        })
+    </script>
+</body>
+</html>

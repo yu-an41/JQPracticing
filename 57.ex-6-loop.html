@@ -124,12 +124,12 @@
         $('.slider-dots li').click(function () {
             // console.log('li clicked', $(this).index());
             nowPage = $(this).index();
-            pageMovement(nowPage +1);
+            pageMovement(nowPage + 1);
         })
 
         $('.page-right-area').click(function () {
             nowPage++;
-            if (nowPage >= 6) nowPage = 1;
+            if (nowPage >= 6) nowPage = 6;
 
             pageMovement(nowPage);
         })
@@ -144,8 +144,25 @@
         function pageMovement(nowPage) {
             const moveX = nowPage * -800;
 
-            $('.train').css('transform', `translateX(${moveX}px)`);
-            $('.slider-dots li').eq(nowPage - 1).css('background-color', '#fff').siblings().css('background-color', 'transparent');
+            // console.log('transitionend', nowPage);
+
+            if (nowPage === 6) {
+                nowPage = 0;
+                const moveX = nowPage * -800;
+
+                $('.train').on('transitionend', function () {
+                    $('.train').css('transition', 'none').css('transform', `translateX(${moveX}px)`);
+                })
+
+                setTimeout(() => {
+                    nowPage = 1;
+                    $('.slider-dots li').eq(nowPage - 1).css('background-color', '#fff').siblings().css('background-color', 'transparent');
+                }, 0);
+            }
+            else {
+                $('.train').css('transform', `translateX(${moveX}px)`);
+                $('.slider-dots li').eq(nowPage - 1).css('background-color', '#fff').siblings().css('transition', '.5s').css('background-color', 'transparent');
+            }
         }
     </script>
 </body>

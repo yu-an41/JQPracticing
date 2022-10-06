@@ -124,7 +124,7 @@
         $('.slider-dots li').click(function () {
             // console.log('li clicked', $(this).index());
             nowPage = $(this).index();
-            pageMovement(nowPage);
+            pageMovement(nowPage +1);
         })
 
         $('.page-right-area').click(function () {
@@ -136,7 +136,7 @@
 
         $('.page-left-area').click(function () {
             nowPage--;
-            if (nowPage <= 0) nowPage = 5;
+            if (nowPage < 0) nowPage = 5;
 
             pageMovement(nowPage);
         })

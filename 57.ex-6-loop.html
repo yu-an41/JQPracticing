@@ -150,9 +150,7 @@
                 nowPage = 0;
                 const moveX = nowPage * -800;
 
-                $('.train').on('transitionend', function () {
                     $('.train').css('transition', 'none').css('transform', `translateX(${moveX}px)`);
-                })
 
                 setTimeout(() => {
                     nowPage = 1;
